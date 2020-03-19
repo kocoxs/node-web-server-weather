@@ -53,7 +53,7 @@ app.get('/weather', (req, res) => {
                 error
             });
         }else{
-            weatherAPI.weather({lat: latitude, long: longitude}, (error, {summary, temperature, precipProbability } = {}) => {
+            weatherAPI.weather({lat: latitude, long: longitude}, (error, {summary, temperature, precipProbability, windSpeed } = {}) => {
                 if(error){
                     return res.send({
                         error
@@ -61,7 +61,7 @@ app.get('/weather', (req, res) => {
                 }else{
                     res.send({
                         location: req.query.address,
-                        weather: `El clima en ${place_name} : es ${summary} con una temperaruta de ${temperature} y una probabilidad de lluvia de ${precipProbability}`
+                        weather: `El clima en ${place_name} : es ${summary} con una temperaruta de ${temperature} y una probabilidad de lluvia de ${precipProbability} la velocidad del viento es: ${windSpeed}`
                     })
                     
                 }

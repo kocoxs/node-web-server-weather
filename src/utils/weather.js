@@ -18,11 +18,12 @@ const weather = ({lat = '37.8267', long = '-122.4233'}, callback) => {
             }else{
                 const currently = response.body.currently;
                 const dia0 = response.body.daily.data[0];
-                
+                console.log(currently);
                 callback(undefined,{
                     summary: dia0.summary,
                     temperature: currently.temperature,
-                    precipProbability: currently.precipProbability
+                    precipProbability: currently.precipProbability,
+                    windSpeed: currently.windSpeed
                 })
             }
         }
