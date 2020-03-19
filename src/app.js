@@ -5,6 +5,8 @@ const geocodeAPI = require('./utils/goecode.js')
 const weatherAPI = require('./utils/weather.js') 
 
 const app = express()
+const port = process.env.PORT || 3000
+
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -96,6 +98,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log("Servidor esta corriendo")
+app.listen(port, () => {
+    console.log(`Servidor esta corriendo en puerto ${port}`)
 })

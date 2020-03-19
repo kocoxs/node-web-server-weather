@@ -11,7 +11,7 @@ $("form").submit((e)=>{
 
 const consulta = () => {
     const address = $("#address").val()
-    fetch(`http://localhost:3000/weather?address=${address}`)
+    fetch(`/weather?address=${address}`)
     .then((response)=> response.json())
     .then( (respuesta)  => {
             $("#error").hide()
